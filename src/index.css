@@ -35,4 +35,8 @@ code {
   .desktop{
       display: flex;
   }
+
+  .font__size--desktop{
+    font-size: 20px;
+  }
 }

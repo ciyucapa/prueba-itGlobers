@@ -46,3 +46,12 @@
     width: 35px;
     height: 35px;
 }
+
+.navbar__slider--menu{
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: red;
+}

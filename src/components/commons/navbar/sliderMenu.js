@@ -2,8 +2,10 @@ import PropTypes from 'prop-types';
 
 import OptionsList from './optionsList';
 
+import './navbar.css'
+
 const SliderMenu = (props) => (
-    <div style={{width: 300, height: '100%', position: 'fixed', top: 0, left: 0, backgroundColor: '#FF0000'}}>
+    <div className="navbar__slider--menu" >
         <OptionsList {...props} />
     </div>
 );

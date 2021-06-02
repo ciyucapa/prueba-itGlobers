@@ -2,7 +2,7 @@ import {useState, useMemo, useCallback} from 'react';
 
 import {validateEmail, ageCalculator} from '../utils';
 
-const useForm = () => {
+const useForm = (showModal = () => {}) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -70,6 +70,7 @@ const useForm = () => {
             });
 
             resetForm();
+            showModal('Tu información fue enviada con éxito, estaremos en contacto contigo');
         }
     }, [isValidForm, firstName, lastName, email, phone, birthdate]);
 
