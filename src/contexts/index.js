@@ -1,0 +1,1 @@
+export {default as settingsContext} from './settings';
