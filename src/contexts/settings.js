@@ -1,5 +1,7 @@
-import React, {createContext, useCallback, useContext, useMemo} from 'react';
+import React, {createContext, useCallback, useContext, useEffect, useMemo} from 'react';
 import PropTypes from 'prop-types';
+
+import json from '../data/agencies.json';
 
 import {SETTINGS_KEY, SETTINGS_DEFAULT_VALUE} from './state';
 
@@ -36,7 +38,19 @@ const settings = (useStorage) => {
             throw new Error('useSettings must be used within a SettingsProvider');
         }
 
-        const {settings, updateSettings: update, ...rest} = context;
+        const {settings, updateSettings: update, settingsIsReady, ...rest} = context;
+
+        useEffect(() => {
+            let isAssign = true;
+
+            if (isAssign && settingsIsReady) {
+                update({
+                    ...settings,
+                    ...json,
+                });
+                isAssign = false;
+            }
+        }, [settingsIsReady]);
 
         const changeAgencie = useCallback((agencie) => {
             update({
@@ -47,6 +61,7 @@ const settings = (useStorage) => {
 
         return {
             ...rest,
+            settingsIsReady,
             settings,
             changeAgencie,
         };
