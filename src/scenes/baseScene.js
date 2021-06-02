@@ -6,7 +6,7 @@ import useStorageCreator from '../hooks/useStorageCreator';
 
 const BaseScene = (props) => {
     const {Child, stackProps, useSettings} = props;
-    const {settings, settingsIsReady, changeAgencie} = useSettings();
+    const {settings, settingsIsReady, changeAgency} = useSettings();
 
     if (!settingsIsReady) {
         return null;
@@ -14,8 +14,8 @@ const BaseScene = (props) => {
 
     return (
         <>
-            <Navbar options={settings.agencies} onSelect={changeAgencie} />
-            <Child {...stackProps} agencie={settings.agencie} />
+            <Navbar options={settings.agencies} onSelect={changeAgency} />
+            <Child {...stackProps} agency={settings.agency} />
         </>
     );
 };

@@ -20,6 +20,11 @@ code {
   display: none;
 }
 
+.error__input{
+  color: red;
+  font-size: 10px;
+}
+
 @media only screen and (max-width: 920px){
   .mobile{
       display: flex;

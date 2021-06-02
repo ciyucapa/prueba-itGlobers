@@ -1,27 +1,33 @@
 import PropTypes from 'prop-types';
 
+import Form from '../../components/commons/form';
+import useForm from '../../hooks/useForm';
 import BaseScene from '../baseScene';
 
-const App = (props) => (
-    <>
-        {props.agencie ? (
-            <div>
-                Hola, bienvenido, sabemos que quieres viajar en un {props.agencie.name}, por favor diligencia el siguiente formulario:
-            </div>
-        ) : (
-            <div>
-                Bienvenido, puedes escoger una agencia!
-            </div>
-        )}
-    </>
-);
+const App = (props) => {
+    const hook = useForm();
+    return (
+        <>
+            {props.agency ? (
+                <div>
+                    Hola, bienvenido, sabemos que quieres viajar en un {props.agency.name}, por favor diligencia el siguiente formulario:
+                    <Form {...hook} agency={props.agency}/>
+                </div>
+            ) : (
+                <div>
+                    Bienvenido, puedes escoger una agencia!
+                </div>
+            )}
+        </>
+    );
+};
 
 App.propType = {
-    agencie: PropTypes.any,
+    agency: PropTypes.any,
 };
 
 App.defaultProps = {
-    agencie: null,
+    agency: null,
 };
 
 export default BaseScene(App);

@@ -52,10 +52,10 @@ const settings = (useStorage) => {
             }
         }, [settingsIsReady]);
 
-        const changeAgencie = useCallback((agencie) => {
+        const changeAgency = useCallback((agency) => {
             update({
                 ...settings,
-                agencie,
+                agency,
             });
         }, [settings]);
 
@@ -63,7 +63,7 @@ const settings = (useStorage) => {
             ...rest,
             settingsIsReady,
             settings,
-            changeAgencie,
+            changeAgency,
         };
     };
 
